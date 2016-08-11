@@ -1,0 +1,18 @@
+{
+    "name": "zen-soundboard",
+    "version": "1.0.0",
+    "license": "MIT",
+    "summary": "Tone JS Instrument Tester",
+    "repository": "https://github.com/nickjohnson-dev/zen-soundboard.git",
+    "source-directories": [
+        "src"
+    ],
+    "exposed-modules": [],
+    "dependencies": {
+        "elm-lang/core": "4.0.3 <= v < 5.0.0",
+        "elm-lang/html": "1.1.0 <= v < 2.0.0",
+        "elm-lang/svg": "1.1.1 <= v < 2.0.0",
+        "evancz/elm-http": "3.0.1 <= v < 4.0.0"
+    },
+    "elm-version": "0.17.1 <= v < 0.18.0"
+}

@@ -3,6 +3,8 @@
   "description": "Soundboard for Tone.js Instruments -- Written in Elm",
   "version": "0.0.1",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "surge -p ./public -d zen-soundboard.surge.sh",
     "build": "webpack",
     "start": "webpack-dev-server --hot --inline --port 7654"
   },

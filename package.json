@@ -1,15 +1,18 @@
 {
   "name": "zen-soundboard",
+  "description": "Soundboard for Tone.js Instruments -- Written in Elm",
   "version": "0.0.1",
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server --hot --inline --port 7654"
   },
   "devDependencies": {
+    "babel-core": "6.13.2",
     "babel-eslint": "6.1.2",
     "babel-loader": "6.2.4",
     "babel-plugin-transform-object-rest-spread": "6.8.0",
     "babel-preset-es2015": "6.13.2",
+    "babel-preset-stage-2": "6.13.0",
     "elm-webpack-loader": "3.0.3",
     "webpack": "^1.12.0",
     "webpack-dev-server": "^1.14.0"

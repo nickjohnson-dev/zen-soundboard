@@ -1,4 +1,4 @@
-module Soundboard.Types exposing (..)
+module App.Types exposing (..)
 
 
 type alias Model =

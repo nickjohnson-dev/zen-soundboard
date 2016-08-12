@@ -5,7 +5,7 @@
     "summary": "Tone JS Instrument Tester",
     "repository": "https://github.com/nickjohnson-dev/zen-soundboard.git",
     "source-directories": [
-        "src"
+        "src/elm"
     ],
     "exposed-modules": [],
     "dependencies": {

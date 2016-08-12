@@ -1,6 +1,6 @@
-module Soundboard.View exposing (..)
+module App.View exposing (..)
 
-import Soundboard.Types exposing (..)
+import App.Types exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)

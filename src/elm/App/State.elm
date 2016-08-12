@@ -1,7 +1,7 @@
-module Soundboard.State exposing (..)
+module App.State exposing (..)
 
-import Soundboard.Types exposing (..)
-import Soundboard.Ports exposing (play)
+import App.Types exposing (..)
+import App.Ports exposing (play)
 
 
 init : ( Model, Cmd Msg )

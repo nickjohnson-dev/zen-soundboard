@@ -1,4 +1,12 @@
 port module App.Ports exposing (..)
 
+import App.Types exposing (..)
 
-port play : String -> Cmd msg
+
+port toneInit : SynthOptions -> Cmd msg
+
+
+port attack : Note -> Cmd msg
+
+
+port release : Bool -> Cmd msg

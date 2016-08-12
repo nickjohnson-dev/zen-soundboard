@@ -1,24 +1,16 @@
-module App.State exposing (..)
+module Keys.State exposing (..)
 
-import App.Types exposing (..)
-import App.Ports exposing (..)
+import Keys.Types exposing (..)
+import Keys.Ports exposing (..)
 
 
 initialOptions : SynthOptions
 initialOptions =
     { oscillator =
-        { oscType = "sawtooth"
+        { oscType = "pwm"
         }
     , volume = -15
     }
-
-
-init : ( Model, Cmd Msg )
-init =
-    { noteNames = fullScale
-    , octave = 3
-    }
-        ! [ toneInit initialOptions ]
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )

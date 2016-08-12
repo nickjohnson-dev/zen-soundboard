@@ -1,0 +1,61 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+.keys {
+  display: flex;
+  margin-top: auto;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 8.334%;
+  height: 212px;
+  background-color: #dde;
+  font-size: 1.0rem;
+  cursor: pointer;
+  & + .key {
+    border-left: 1px solid #ccd;
+  }
+  &:hover {
+    background-color: #ccd;
+  }
+  &:active {
+    background-color: #bbc;
+  }
+}
+
+.octave-shifters {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.octave-shifter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  height: 56px;
+  color: #fff;
+  background-color: #334;
+  font-size: 1.5rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #445;
+  }
+  &:active {
+    background-color: #556;
+  }
+}

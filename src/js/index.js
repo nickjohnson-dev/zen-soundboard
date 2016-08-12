@@ -6,9 +6,10 @@ const app = Elm.Main.fullscreen();
 let synth;
 
 app.ports.toneInit.subscribe(options => {
-  console.log(options);
   const fixedOptions = Object.assign({}, options, {
-    type: options.oscillator.oscType,
+    oscillator: {
+      type: options.oscillator.oscType,
+    },
   });
   synth = new Tone.MonoSynth(fixedOptions).toMaster();
 });

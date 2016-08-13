@@ -1,27 +1,23 @@
-module Keys.State exposing (..)
+module Keyboard.State exposing (..)
 
-import Keys.Types exposing (..)
-import Keys.Ports exposing (..)
-
-
-initialOptions : SynthOptions
-initialOptions =
-    { oscillator =
-        { oscType = "pwm"
-        }
-    , volume = -15
-    }
+import App.Ports exposing (attack, release)
+import App.Types as App
+import Keyboard.Types exposing (..)
+import Debug exposing (log)
 
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+init : Octave -> Model
+init initialOctave =
+    Model (octaveToInt initialOctave)
+
+
+update : Msg -> Model -> ( Model, Cmd a )
 update msg model =
-    case msg of
+    case (log "Keyboard Message" msg) of
         Attack noteName ->
             model
                 ! [ attack
-                        { name = noteName
-                        , length = "16n"
-                        }
+                        (App.Note noteName "16n")
                   ]
 
         Release ->

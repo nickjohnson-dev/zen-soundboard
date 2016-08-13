@@ -1,17 +1,15 @@
 module App.Types exposing (..)
 
+import Keyboard.Types as Keyboard
+
 
 type alias Model =
-    { noteNames : List String
-    , octave : Int
+    { keyboard : Keyboard.Model
     }
 
 
 type Msg
-    = Attack String
-    | OctaveDown
-    | OctaveUp
-    | Release
+    = KeyboardMsg Keyboard.Msg
 
 
 type alias Note =
@@ -26,43 +24,3 @@ type alias SynthOptions =
         }
     , volume : Int
     }
-
-
-lengths : List String
-lengths =
-    [ "32n"
-    , "16n"
-    , "8n"
-    , "4n"
-    , "2n"
-    , "1n"
-    ]
-
-
-fullScale : List String
-fullScale =
-    List.concatMap
-        (\num ->
-            List.map
-                (\letter -> letter ++ num)
-                [ "C"
-                , "C#"
-                , "D"
-                , "D#"
-                , "E"
-                , "F"
-                , "F#"
-                , "G"
-                , "G#"
-                , "A"
-                , "A#"
-                , "B"
-                ]
-        )
-        [ "0"
-        , "1"
-        , "2"
-        , "3"
-        , "4"
-        , "5"
-        ]

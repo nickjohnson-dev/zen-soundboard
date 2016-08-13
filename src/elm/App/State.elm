@@ -1,7 +1,9 @@
 module App.State exposing (..)
 
 import App.Types exposing (..)
-import App.Ports exposing (..)
+import App.Ports exposing (toneInit)
+import Keyboard.State as KeyboardState
+import Keyboard.Types as Keyboard
 
 
 initialOptions : SynthOptions
@@ -9,14 +11,13 @@ initialOptions =
     { oscillator =
         { oscType = "sawtooth"
         }
-    , volume = -15
+    , volume = -5
     }
 
 
 init : ( Model, Cmd Msg )
 init =
-    { noteNames = fullScale
-    , octave = 3
+    { keyboard = KeyboardState.init Keyboard.Three
     }
         ! [ toneInit initialOptions ]
 
@@ -24,28 +25,15 @@ init =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        Attack noteName ->
-            model
-                ! [ attack
-                        { name = noteName
-                        , length = "16n"
-                        }
-                  ]
-
-        Release ->
-            model ! [ release True ]
-
-        OctaveDown ->
-            if model.octave < 1 then
-                model ! []
-            else
-                { model | octave = model.octave - 1 } ! []
-
-        OctaveUp ->
-            if model.octave > 4 then
-                model ! []
-            else
-                { model | octave = model.octave + 1 } ! []
+        KeyboardMsg msg ->
+            let
+                ( updatedKeyboard, keyboardCmds ) =
+                    KeyboardState.update msg model.keyboard
+            in
+                { model
+                    | keyboard = updatedKeyboard
+                }
+                    ! [ keyboardCmds ]
 
 
 subscriptions : Model -> Sub Msg

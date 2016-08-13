@@ -1,0 +1,91 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  &__keys {
+    display: flex;
+    height: 212px;
+    position: relative;
+    &__black-keys {
+      display: flex;
+      flex-grow: 1;
+      height: 100px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      pointer-events: none;
+      overflow: hidden;
+      .keyboard__key {
+        color: #fff;
+        pointer-events: all;
+        &--S {
+          visibility: hidden;
+          pointer-events: none;
+          flex-basis: 4.166%;
+        }
+        &"--C#",
+        &"--D#",
+        &"--F#",
+        &"--G#",
+        &"--A#" {
+          flex-basis: 12.49%;
+        }
+        background-color: #333;
+      }
+    }
+    &__white-keys {
+      display: flex;
+      flex-grow: 1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 50;
+    }
+  }
+  &__key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 8.334%;
+    background-color: #dde;
+    font-size: 1.0rem;
+    cursor: pointer;
+    & + .key {
+      border-left: 1px solid #ccd;
+    }
+    &:hover {
+      background-color: #ccd;
+    }
+    &:active {
+      background-color: #bbc;
+    }
+  }
+  &__octave-shifters {
+    display: flex;
+    flex-shrink: 0;
+    &__shifter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      height: 56px;
+      color: #fff;
+      background-color: #334;
+      font-size: 1.5rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #445;
+      }
+      &:active {
+        background-color: #556;
+      }
+    }
+  }
+}

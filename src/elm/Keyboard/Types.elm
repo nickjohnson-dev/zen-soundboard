@@ -3,6 +3,7 @@ module Keyboard.Types exposing (..)
 
 type alias Model =
     { octave : Int
+    , isPlaying : Bool
     }
 
 

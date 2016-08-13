@@ -9,7 +9,7 @@ import Keyboard.Types as Keyboard
 initialOptions : SynthOptions
 initialOptions =
     { oscillator =
-        { oscType = "sawtooth"
+        { oscType = "square"
         }
     , volume = -5
     }

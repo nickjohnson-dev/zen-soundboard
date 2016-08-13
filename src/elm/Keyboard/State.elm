@@ -8,20 +8,27 @@ import Debug exposing (log)
 
 init : Octave -> Model
 init initialOctave =
-    Model (octaveToInt initialOctave)
+    Model (octaveToInt initialOctave) False
 
 
 update : Msg -> Model -> ( Model, Cmd a )
 update msg model =
-    case (log "Keyboard Message" msg) of
+    case msg of
         Attack noteName ->
-            model
+            { model | isPlaying = True }
                 ! [ attack
                         (App.Note noteName "16n")
                   ]
 
         Release ->
-            model ! [ release True ]
+            let
+                commands =
+                    if model.isPlaying == True then
+                        [release True]
+                    else
+                        []
+            in
+                { model | isPlaying = False } ! commands
 
         OctaveDown ->
             if model.octave < 1 then

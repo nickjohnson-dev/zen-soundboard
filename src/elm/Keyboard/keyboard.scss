@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   margin-top: auto;
+  user-select: none;
+  width: 100%;
+  max-width: 768px;
   &__keys {
     display: flex;
     height: 212px;
@@ -21,6 +24,8 @@
       .keyboard__key {
         color: #fff;
         pointer-events: all;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
         &--S {
           visibility: hidden;
           pointer-events: none;
@@ -45,6 +50,9 @@
       bottom: 0;
       left: 0;
       z-index: 50;
+      .keyboard__key {
+        border-right: 1px solid #ccd
+      }
     }
   }
   &__key {
@@ -52,7 +60,7 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    flex-shrink: 0;
+    flex-shrink: 1;
     flex-basis: 8.334%;
     background-color: #dde;
     font-size: 1.0rem;
@@ -75,16 +83,23 @@
       align-items: center;
       justify-content: center;
       flex-grow: 1;
+      flex-basis: 50%;
       height: 56px;
       color: #fff;
-      background-color: #334;
+      background-color: #445;
       font-size: 1.5rem;
       cursor: pointer;
-      &:hover {
-        background-color: #445;
-      }
-      &:active {
+      &:not(.keyboard__octave-shifters__shifter--disabled):hover {
         background-color: #556;
+      }
+      &:not(.keyboard__octave-shifters__shifter--disabled):active {
+        background-color: #667;
+      }
+      &--disabled {
+        .keyboard__octave-shifters__shifter__text {
+          display: none;
+          cursor: default;
+        }
       }
     }
   }

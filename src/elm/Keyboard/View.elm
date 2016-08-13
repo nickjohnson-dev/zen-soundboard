@@ -23,15 +23,25 @@ view model =
         , (div
             [ class "keyboard__octave-shifters" ]
             [ div
-                [ class "keyboard__octave-shifters__shifter"
+                [ class
+                    ("keyboard__octave-shifters__shifter"
+                        ++ (if model.octave < 1 then " keyboard__octave-shifters__shifter--disabled" else ""))
                 , onClick OctaveDown
                 ]
-                [ text "Octave Down" ]
+                [ div
+                    [ class "keyboard__octave-shifters__shifter__text" ]
+                    [ text ("Octave " ++ (toString (model.octave - 1))) ]
+                ]
             , div
-                [ class "keyboard__octave-shifters__shifter"
+                [ class
+                    ("keyboard__octave-shifters__shifter"
+                        ++ (if model.octave > 4 then " keyboard__octave-shifters__shifter--disabled" else ""))
                 , onClick OctaveUp
                 ]
-                [ text "Octave Up" ]
+                [ div
+                    [ class "keyboard__octave-shifters__shifter__text" ]
+                    [ text ("Octave " ++ (toString (model.octave + 1))) ]
+                ]
             ]
           )
         ]
@@ -60,7 +70,7 @@ key name =
         , onMouseLeave (Release)
         , onMouseUp (Release)
         ]
-        [ text name ]
+        []
 
 
 letters : List String
